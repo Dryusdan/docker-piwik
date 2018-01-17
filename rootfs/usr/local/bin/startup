@@ -5,7 +5,7 @@ addgroup -g ${GID} web && adduser -H -s /bin/sh -D -G web -u ${UID} web
 chown -R web:web /nginx /php /etc/s6.d /piwik /config /var/log /tmp /usr/share/GeoIP
 chmod +x /etc/s6.d/*/run /etc/s6.d/.s6-svscan/finish
 
-sed -i -e "s/<UPLOAD_MAX_SIZE>/$UPLOAD_MAX_SIZE/g" /nginx/conf/nginx.conf /php/etc/php-fpm.conf \
+sed -i -e "s/<UPLOAD_MAX_SIZE>/$UPLOAD_MAX_SIZE/g" /nginx/conf/nginx.conf \
        -e "s/<OPCACHE_MEM_SIZE>/$OPCACHE_MEM_SIZE/g" /php/conf.d/opcache.ini
 
 if [ ! -f /config/config.ini.php ]; then
