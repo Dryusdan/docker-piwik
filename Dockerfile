@@ -1,4 +1,4 @@
-FROM wonderfall/nginx-php
+FROM xataz/nginx-php
 
 
 ARG VERSION=3.3.0
