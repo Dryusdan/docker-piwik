@@ -55,3 +55,4 @@ VOLUME /config
 EXPOSE 8888
 
 ENTRYPOINT ["/usr/local/bin/startup"]
+CMD ["/bin/s6-svscan", "/etc/s6.d"]
