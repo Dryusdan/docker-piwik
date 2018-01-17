@@ -1,4 +1,4 @@
-FROM wonderfall/nginx-php
+FROM xataz/nginx-php
 
 ARG VERSION=3.3.0
 ARG GPG_matthieu="814E 346F A01A 20DB B04B  6807 B5DB D592 5590 A237"
@@ -21,6 +21,7 @@ RUN BUILD_DEPS=" \
     ${BUILD_DEPS} \
     geoip \
     tzdata \
+    python2 \
  && pecl install geoip-1.1.1 \
  && echo 'extension=geoip.so' >> /php/conf.d/geoip.ini \
  && mkdir /piwik && cd /tmp \
@@ -40,6 +41,8 @@ RUN BUILD_DEPS=" \
  && gzip -d /usr/share/GeoIP/GeoLiteCity.dat.gz \
  && mv /usr/share/GeoIP/GeoLiteCity.dat /usr/share/GeoIP/GeoIPCity.dat \
  && apk del ${BUILD_DEPS} php7-dev php7-pear \
+ && git clone https://github.com/matomo-org/matomo-log-analytics.git /tmp/mamoto-log-analytics \
+ && mv /tmp/mamoto-log-analytics/import_logs.py /piwik/ \
  && rm -rf /tmp/*  /var/cache/apk/* /tmp/* /root/.gnupg /root/.cache/
 
 COPY rootfs /
