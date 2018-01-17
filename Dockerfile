@@ -52,7 +52,7 @@ RUN chmod +x /usr/local/bin/startup /etc/s6.d/*/* /etc/s6.d/.s6-svscan/*
 
 VOLUME /config
 
-EXPOSE 8888
+EXPOSE 8080
 
 ENTRYPOINT ["/usr/local/bin/startup"]
 CMD ["/bin/s6-svscan", "/etc/s6.d"]
