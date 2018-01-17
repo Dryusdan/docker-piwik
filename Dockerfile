@@ -50,7 +50,7 @@ COPY rootfs /
 
 RUN chmod +x /usr/local/bin/startup /etc/s6.d/*/* /etc/s6.d/.s6-svscan/*
 
-VOLUME /config
+VOLUME ["/config", "/logs"]
 
 EXPOSE 8080
 
