@@ -1,4 +1,4 @@
-FROM xataz/nginx-php
+FROM registry.dryusdan.fr/dryusdan/php:7.1
 
 
 ARG VERSION=3.3.0
