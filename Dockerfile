@@ -40,9 +40,9 @@ RUN BUILD_DEPS=" \
  && wget -q https://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz -P /usr/share/GeoIP/ \
  && gzip -d /usr/share/GeoIP/GeoLiteCity.dat.gz \
  && mv /usr/share/GeoIP/GeoLiteCity.dat /usr/share/GeoIP/GeoIPCity.dat \
- && apk del ${BUILD_DEPS} php7-dev php7-pear \
  && git clone https://github.com/matomo-org/matomo-log-analytics.git /tmp/mamoto-log-analytics \
  && mv /tmp/mamoto-log-analytics/import_logs.py /piwik/ \
+ && apk del ${BUILD_DEPS} php7-dev php7-pear \
  && rm -rf /tmp/*  /var/cache/apk/* /tmp/* /root/.gnupg /root/.cache/
 
 COPY rootfs /
